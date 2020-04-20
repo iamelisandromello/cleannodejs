@@ -2,9 +2,9 @@ import { MongoHelper } from '../helpers/mongo-helper'
 import { SurveyMongoRepository } from './survey-mongo-repository'
 import { Collection } from 'mongodb'
 
-let suerveyCollection: Collection
+let surveyCollection: Collection
 
-describe('Account Mongo Repository', () => {
+describe('Survey Mongo Repository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
   })
@@ -14,8 +14,8 @@ describe('Account Mongo Repository', () => {
   })
 
   beforeEach(async () => {
-    suerveyCollection = await MongoHelper.getCollection('surveys')
-    await suerveyCollection.deleteMany({})
+    surveyCollection = await MongoHelper.getCollection('surveys')
+    await surveyCollection.deleteMany({})
   })
 
   const makeSut = (): SurveyMongoRepository => {
@@ -33,7 +33,7 @@ describe('Account Mongo Repository', () => {
         answer: 'other_answer'
       }]
     })
-    const survey = await suerveyCollection.findOne({ question: 'any_question' })
+    const survey = await surveyCollection.findOne({ question: 'any_question' })
     expect(survey).toBeTruthy()
   })
 })
