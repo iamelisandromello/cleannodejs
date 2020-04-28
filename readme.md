@@ -1,8 +1,6 @@
+[![Build Status](https://travis-ci.org/iamelisandromello/cleannodejs.svg?branch=master)](https://travis-ci.org/iamelisandromello/cleannodejs)
+[![Coverage Status](https://coveralls.io/repos/github/iamelisandromello/cleannodejs/badge.svg)](https://coveralls.io/github/iamelisandromello/cleannodejs)
 # **Clean Node API**
-
-Essa API faz parte do treinamento do professor Rodrigo Manguinho (Mango) na Udemy.
-
-> ### [Link para o treinamento](https://www.udemy.com/course/tdd-com-mango/?referralCode=B53CE5CA2B9AFA5A6FA1)
 
 O objetivo do treinamento é mostrar como criar uma API com uma arquitetura bem definida e desacoplada, utilizando TDD (programação orientada a testes) como metodologia de trabalho, Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID e, sempre que possível, aplicando Design Patterns para resolver alguns problemas comuns.
 
