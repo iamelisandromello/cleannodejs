@@ -39,7 +39,7 @@ describe('Survey Routes', () => {
   beforeEach(async () => {
     surveyCollection = await MongoHelper.getCollection('surveys')
     await surveyCollection.deleteMany({})
-    accountCollection = await MongoHelper.getCollection('surveys')
+    accountCollection = await MongoHelper.getCollection('accounts')
     await accountCollection.deleteMany({})
   })
 
@@ -73,7 +73,7 @@ describe('Survey Routes', () => {
             answer: 'Answer 2'
           }]
         })
-        .expect(403)
+        .expect(204)
     })
   })
 
@@ -83,5 +83,21 @@ describe('Survey Routes', () => {
         .get('/api/surveys')
         .expect(403)
     })
+  })
+
+  test('Should return 204 on load surveys with valid accessToken', async () => {
+    const accessToken = await makeAccessToken()
+    await request(app)
+      .get('/api/surveys')
+      .set('x-access-token', accessToken)
+      .expect(204)
+  })
+
+  test('Should return 204 on load surveys with valid accessToken', async () => {
+    const accessToken = await makeAccessToken()
+    await request(app)
+      .get('/api/surveys')
+      .set('x-access-token', accessToken)
+      .expect(204)
   })
 })
