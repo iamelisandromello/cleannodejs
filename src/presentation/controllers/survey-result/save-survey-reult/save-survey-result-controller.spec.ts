@@ -1,5 +1,7 @@
 import { SaveResultController } from './save-survey-result-controller'
 import { HttpRequest, LoadSurveyById, SurveyModel } from './save-survey-recult-controller-protocols'
+import { InvalidParamError } from '@/presentation/errors'
+import { forbidden } from '@/presentation/helpers/http/http-helper'
 
 const makeFakeRequest = (): HttpRequest => ({
   params: {
@@ -41,10 +43,17 @@ const makeSut = (): SutTypes => {
 }
 
 describe('SaveSurveyResult Controller', () => {
-  test('Should call LoadSurveyById with crrect values', async () => {
+  test('Should call LoadSurveyById with correct values', async () => {
     const { sut, loadSurverByIdStub } = makeSut()
     const loadById = jest.spyOn(loadSurverByIdStub, 'loadById')
     await sut.handle(makeFakeRequest())
     expect(loadById).toHaveBeenCalledWith('any_survey_id')
+  })
+
+  test('Should return if LoadSurveyById  returns null', async () => {
+    const { sut, loadSurverByIdStub } = makeSut()
+    jest.spyOn(loadSurverByIdStub, 'loadById').mockResolvedValueOnce(new Promise(resolve => resolve(null)))
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(forbidden(new InvalidParamError('surveyId')))
   })
 })
