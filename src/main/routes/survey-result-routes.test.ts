@@ -65,7 +65,7 @@ describe('Survey Routes', () => {
         date: new Date()
       })
       await request(app)
-        .put(`/api/surveys/${res.ops[0]._id}/results`)
+        .put(`/api/surveys/${res.ops[0]._id as string}/results`)
         .set('x-access-token', accessToken)
         .send({
           answer: 'Answer 1'
