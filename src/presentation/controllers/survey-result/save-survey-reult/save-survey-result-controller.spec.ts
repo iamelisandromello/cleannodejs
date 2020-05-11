@@ -1,4 +1,4 @@
-import { SaveResultController } from './save-survey-result-controller'
+import { SaveSurveyResultController } from './save-survey-result-controller'
 import {
   HttpRequest,
   LoadSurveyById,
@@ -6,7 +6,7 @@ import {
   SaveSurveyResult,
   SaveSurveyResultModel,
   SurveyResultModel
-} from './save-survey-recult-controller-protocols'
+} from './save-survey-result-controller-protocols'
 import { InvalidParamError } from '@/presentation/errors'
 import { forbidden, serverError, ok } from '@/presentation/helpers/http/http-helper'
 import MockDate from 'mockdate'
@@ -58,7 +58,7 @@ const makeSaveSurveyResult = (): SaveSurveyResult => {
 }
 
 type SutTypes = {
-  sut: SaveResultController
+  sut: SaveSurveyResultController
   loadSurverByIdStub: LoadSurveyById
   saveSurveyResultStub: SaveSurveyResult
 }
@@ -66,7 +66,7 @@ type SutTypes = {
 const makeSut = (): SutTypes => {
   const loadSurverByIdStub = makeLoadSurveyById()
   const saveSurveyResultStub = makeSaveSurveyResult()
-  const sut = new SaveResultController(loadSurverByIdStub, saveSurveyResultStub)
+  const sut = new SaveSurveyResultController(loadSurverByIdStub, saveSurveyResultStub)
   return {
     sut,
     loadSurverByIdStub,
