@@ -35,6 +35,6 @@ describe('DbLoadSurveyResult UseCase', () => {
   test('Should return surveyResultModel on success', async () => {
     const { sut } = makeSut()
     const survey = await sut.load('any_survey_id')
-    await expect(survey).toEqual(mockSurveyResultModel())
+    expect(survey).toEqual(mockSurveyResultModel())
   })
 })
