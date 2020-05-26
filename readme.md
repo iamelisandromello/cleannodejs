@@ -1,5 +1,8 @@
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://travis-ci.org/iamelisandromello/cleannodejs.svg?branch=master)](https://travis-ci.org/iamelisandromello/cleannodejs)
 [![Coverage Status](https://coveralls.io/repos/github/iamelisandromello/cleannodejs/badge.svg)](https://coveralls.io/github/iamelisandromello/cleannodejs)
+
 # **Clean Node API**
 
 O objetivo do projeto é mostrar como criar uma API com uma arquitetura bem definida e desacoplada, utilizando TDD (programação orientada a testes) como metodologia de trabalho, Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID e, sempre que possível, aplicando Design Patterns para resolver alguns problemas comuns.
