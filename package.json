@@ -21,8 +21,9 @@
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Elisandro Mello Correa",
+  "license": "GPL-3.0-or-later",
+  "repository": "github:iamelisandromello/cleannodejs",
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.1.5",
     "@types/bcrypt": "^3.0.0",

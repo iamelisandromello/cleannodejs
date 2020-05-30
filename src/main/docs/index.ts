@@ -1,6 +1,6 @@
-import { loginPath } from './paths/login-paths'
-import { accountSchema } from './schemas/account-schema'
-import { loginParamSchema } from './schemas/login-params-schema'
+import { loginPath } from './paths'
+import { serverError, unauthorized, badRequest, notFound } from './components'
+import { accountSchema, loginParamSchema, errorSchema } from './schemas'
 
 export default {
   openapi: '3.0.0',
@@ -8,6 +8,10 @@ export default {
     title: 'Clean Node TypeScript',
     description: 'Api Curso de Clen Architecture em TypeScript',
     version: '1.0.0'
+  },
+  license: {
+    name: 'GPL-3.0-or-later',
+    url: 'https://spdx.org/licenses/GPL-3.0-or-later.html'
   },
   servers: [{
     url: '/api'
@@ -20,6 +24,13 @@ export default {
   },
   schemas: {
     account: accountSchema,
-    loginParams: loginParamSchema
+    loginParams: loginParamSchema,
+    error: errorSchema
+  },
+  components: {
+    badRequest,
+    unauthorized,
+    serverError,
+    notFound
   }
 }
